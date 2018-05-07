@@ -5,6 +5,7 @@ class LanguagesController < ApplicationController
   # GET /languages.json
   def index
     @languages = Language.all
+    
   end
 
   # GET /languages/1
@@ -19,6 +20,7 @@ class LanguagesController < ApplicationController
 
   # GET /languages/1/edit
   def edit
+
   end
 
   # POST /languages
@@ -69,6 +71,7 @@ class LanguagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def language_params
-      params.require(:language).permit(:language_code)
+      params.require(:language).permit(:name, :code)
     end
+
 end
