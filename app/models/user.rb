@@ -8,7 +8,8 @@ class User < ApplicationRecord
 
   has_one :profile
   has_one :location
-  has_and_belongs_to_many :languages
+  has_many :speaks
+  has_many :languages, through: :speaks
 
   def create_profile
     Profile.create!([
