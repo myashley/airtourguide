@@ -17,10 +17,7 @@
 
 
 
-<p>
-  <strong>Fare per hour:</strong>
-  <%= @profile.fare_per_hour %>
-</p>
+
 
 <p>
   <strong>Street address:</strong>
@@ -53,23 +50,28 @@
 </p>
 
 <p>
-  <strong>Is tour guide:</strong>
+  <strong>Tour guide:</strong>
   <%= @profile.is_tour_guide %>
 </p>
 
 <p>
-  <strong>Is photographer:</strong>
+  <strong>Photographer:</strong>
   <%= @profile.is_photographer %>
 </p>
 
 <p>
-  <strong>Has car:</strong>
+  <strong>Driving:</strong>
   <%= @profile.has_car %>
 </p>
 
 <p>
-  <strong>Has historical knowledge:</strong>
+  <strong>Historical knowledge:</strong>
   <%= @profile.has_historical_knowledge %>
+</p>
+
+<p>
+  <strong>Fare per hour (AUD) (default): </strong>
+  <%= number_to_currency @profile.fare_per_hour %>
 </p>
 
 <p>

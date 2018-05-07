@@ -20,15 +20,7 @@
     <%= form.label :last_name %>
     <%= form.text_field :last_name, id: :profile_last_name %>
   </div>
-
-
-
   
-
-  <div class="field">
-    <%= form.label :fare_per_hour %>
-    <%= form.text_field :fare_per_hour, id: :profile_fare_per_hour %>
-  </div>
 
   <div class="field">
     <%= form.label :street_address %>
@@ -46,8 +38,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :country_code %>
-    <%= form.text_field :country_code, id: :profile_country_code %>
+    <%= form.label :country %>
+    <%= form.country_select :country_code, priority_countries: ['AU', 'NZ'], id: :profile_country_code %>
   </div>
 
   <div class="field">
@@ -65,7 +57,7 @@
     <%= form.text_area :about_me, id: :profile_about_me %>
   </div>
 
-  
+
 
   <div class="field">
     <%= form.label :is_tour_guide %>
@@ -87,6 +79,11 @@
     <%= form.check_box :has_historical_knowledge, id: :profile_has_historical_knowledge %>
   </div>
 
+<div class="field">
+    <%= form.label 'Fare per hour (AUD)' %>
+    <%= form.number_field :fare_per_hour, step: 0.5, id: :profile_fare_per_hour %>
+  </div>
+  
   <div class="field">
     <%= form.label :intro_tour_guide %>
     <%= form.text_area :intro_tour_guide, id: :profile_intro_tour_guide %>
