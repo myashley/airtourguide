@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @profile.last_name %>
+</p>
+
+<p>
+  <strong>About me:</strong>
+  <%= @profile.about_me %>
+</p>
+
+<p>
+  <strong>Intro tour guide:</strong>
+  <%= @profile.intro_tour_guide %>
+</p>
+
+<p>
+  <strong>Fare per hour:</strong>
+  <%= @profile.fare_per_hour %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @profile.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @profile.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @profile.state %>
+</p>
+
+<p>
+  <strong>Country code:</strong>
+  <%= @profile.country_code %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @profile.postcode %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @profile.phone_number %>
+</p>
+
+<p>
+  <strong>Is tour guide:</strong>
+  <%= @profile.is_tour_guide %>
+</p>
+
+<p>
+  <strong>Is photographer:</strong>
+  <%= @profile.is_photographer %>
+</p>
+
+<p>
+  <strong>Has car:</strong>
+  <%= @profile.has_car %>
+</p>
+
+<p>
+  <strong>Has historical knowledge:</strong>
+  <%= @profile.has_historical_knowledge %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @profile.user %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
