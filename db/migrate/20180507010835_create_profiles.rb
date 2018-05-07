@@ -15,7 +15,7 @@ class CreateProfiles < ActiveRecord::Migration[5.1]
       t.boolean :is_tour_guide
       t.boolean :is_photographer
       t.boolean :has_car
-      t.string :has_historical_knowledge
+      t.boolean :has_historical_knowledge
       t.references :user, foreign_key: true
 
       t.timestamps

@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20180507011817) do
     t.boolean "is_tour_guide"
     t.boolean "is_photographer"
     t.boolean "has_car"
-    t.string "has_historical_knowledge"
+    t.boolean "has_historical_knowledge"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
