@@ -4,8 +4,14 @@ class LanguagesController < ApplicationController
   # GET /languages
   # GET /languages.json
   def index
-    @languages = Language.all
+    @languages = Language.all.order("name ASC")
     
+  end
+
+  def add 
+    @my_language = Language.new(language_params)
+    @language.user = current_user
+    @my_language = @my_language.add_speaker(current_user)
   end
 
   # GET /languages/1
@@ -27,6 +33,7 @@ class LanguagesController < ApplicationController
   # POST /languages.json
   def create
     @language = Language.new(language_params)
+    @language.user = current_user
 
     respond_to do |format|
       if @language.save
