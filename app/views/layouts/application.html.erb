@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Air Tour Guide</title>
     <%= csrf_meta_tags %>
 
@@ -10,9 +11,9 @@
 
   <body>
       <% if user_signed_in? %>
-        <li>
-          <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
-        </li>
+          <%= link_to 'Home', root_path %>
+          <%= link_to 'Profile', @profile %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>        
       <% end %>
 
     <%= yield %>

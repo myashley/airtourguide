@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    redirect_to :root unless user_signed_in?
+    #redirect_to :root unless user_signed_in?
     @profile = current_user.profile
   end
 
@@ -45,7 +45,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update
     @profile = current_user.profile
-    
+
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
