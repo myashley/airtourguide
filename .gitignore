@@ -17,3 +17,10 @@
 /yarn-error.log
 
 .byebug_history
+
+
+# Ignore public/uploads (shrine uploaded files)
+/public/uploads/
+
+.env
+.env.*
