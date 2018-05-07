@@ -1,3 +1,9 @@
+<% if !user_signed_in? %>
+  <li>
+    <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
+
 <h1>Air Tour Guide</h1>
 <p>Display newly added tours here</p>
 <p>Must login to book tours</p>
