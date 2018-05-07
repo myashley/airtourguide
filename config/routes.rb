@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tours
   root 'pages#home'
 
   resources :locations
