@@ -19,10 +19,12 @@
         <td><%= image_tag photo.image_url(:medium) %></td>
         <td><%= photo.description %></td>
         <td><%= photo.is_profile %></td>
-
+        <td><%= photo.user.profile.fullname %></td>
         <td><%= link_to 'Show', photo %></td>
+        <% if policy(photo).edit? %>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
