@@ -19,7 +19,7 @@
 .byebug_history
 
 # Ignore public/uploads (shrine uploaded files)
-/public/uploads/
+/public/uploads/*
 
 .DS_Store
 .env

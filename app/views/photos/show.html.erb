@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>User:</strong>
+  <%= @photo.user.profile.fullname %>
+</p>
+
+<p>
   <strong>Image data:</strong>
-  <%= @photo.image_data %>
+  <%= image_tag @photo.image_url(:medium) %>
 </p>
 
 <p>
@@ -15,10 +20,6 @@
   <%= @photo.is_profile %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @photo.user %>
-</p>
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>

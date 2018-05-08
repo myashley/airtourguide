@@ -6,6 +6,10 @@ class ProfilePolicy < ApplicationPolicy
     def create?
       user.present?
     end
+
+    def edit?
+      return true if user.present? && user == profile.user
+    end
    
     def update?
       return true if user.present? && user == profile.user

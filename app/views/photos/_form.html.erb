@@ -13,7 +13,8 @@
 
   <div class="field">
     <%= form.label :image_data %>
-    <%= form.text_area :image_data, id: :photo_image_data %>
+    <%= form.hidden_field :image, value: photo.cached_image_data %>
+    <%= form.file_field :image, id: :photo_image_data %>
   </div>
 
   <div class="field">
@@ -24,11 +25,6 @@
   <div class="field">
     <%= form.label :is_profile %>
     <%= form.check_box :is_profile, id: :photo_is_profile %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :photo_user_id %>
   </div>
 
   <div class="actions">

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_one :location
   has_and_belongs_to_many :languages
   has_many :tours
+  has_many :photos
 
   def create_profile
     Profile.create!([
