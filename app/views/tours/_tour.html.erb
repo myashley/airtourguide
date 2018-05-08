@@ -4,4 +4,10 @@
 <%= tour.description %><br>
 AUD <%= number_to_currency tour.price %><br>
 <%= tour.user.profile.first_name %><br>
-
+<% if policy(tour).edit? %>
+    <br>
+    <%= link_to 'Edit', edit_tour_path(tour) %> | 
+<% end %>
+<% if policy(tour).destroy? %>
+    <%= link_to 'Delete', tour, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

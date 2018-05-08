@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Tour Guide:</strong>
+  <%= @tour.user.profile.fullname  %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @tour.location.name %>
+</p>
+
+<p>
   <strong>Start date time:</strong>
   <%= @tour.start_date_time %>
 </p>
@@ -20,15 +30,10 @@
   <%= @tour.price %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @tour.user %>
-</p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @tour.location %>
-</p>
 
-<%= link_to 'Edit', edit_tour_path(@tour) %> |
+<% if policy(@tour).edit? %>
+  <%= link_to 'Edit', edit_tour_path(@tour) %> |
+<% end %> 
+
 <%= link_to 'Back', tours_path %>

@@ -10,10 +10,9 @@
   <%= @location.description %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @location.user %>
-</p>
 
+<% if policy(@location).edit? %>
 <%= link_to 'Edit', edit_location_path(@location) %> |
+<% end %>
+
 <%= link_to 'Back', locations_path %>

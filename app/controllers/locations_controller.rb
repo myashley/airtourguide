@@ -20,7 +20,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1/edit
   def edit
-    @location = Location.find_or_initialize_by(user: current_user)
+    @location.user = current_user
   end
 
   # POST /locations

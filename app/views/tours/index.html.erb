@@ -12,14 +12,6 @@
       <%= link_to tour_path(tour) do %>
           <%= render 'tour', tour: tour %>
       <% end %>
-
-      <% if policy(tour).edit? %>
-        <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
-      <% end %>
-
-      <% if policy(tour).destroy? %>
-        <td><%= link_to 'Delete', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
     </div>
 <% end %>
 

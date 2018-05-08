@@ -22,12 +22,14 @@ class ToursController < ApplicationController
   def new
     @tour = Tour.new
     @tour.user = current_user
+    @locations = Location.all
     authorize @tour
   end
 
   # GET /tours/1/edit
   def edit
-    @tour = Tour.find_or_initialize_by(user: current_user)
+    @tour.user = current_user
+    @locations = Location.all
   end
 
   # POST /tours
@@ -35,6 +37,7 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new(tour_params)
     @tour.user = current_user
+    @locations = Location.all
     authorize @tour
 
     respond_to do |format|

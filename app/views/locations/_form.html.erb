@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <p>Creator: <%= location.user.profile.fullname %></p>
+
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :location_name %>
