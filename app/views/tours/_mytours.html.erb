@@ -1,0 +1,23 @@
+<% mytours.each do |tour| %>
+    <div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+        <%= tour.location.name %>
+        <br>
+        <%= tour.start_date_time %>
+        <br>
+        <%= tour.end_date_time %>
+        <br>
+        <%= tour.description %>
+        <br>
+       AUD <%= number_to_currency tour.price %>
+        <br>
+    <% if policy(tour).edit? %>
+        <%= link_to 'Edit', edit_tour_path(tour) %> | 
+    <% end %>
+
+    <% if policy(tour).destroy? %>
+        <%= link_to 'Delete', tour, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    </div>
+    
+<% end %>
+

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Airtourguide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Tour Guide</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,19 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= render 'partials/header', {tour: @mytours, profile: current_user.profile} %>
+    <% end %>
+
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </main>
+
     <%= yield %>
   </body>
+  <%= render 'partials/footer' %>
 </html>
+
+
+      

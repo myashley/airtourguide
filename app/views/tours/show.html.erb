@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tour Guide:</strong>
+  <%= @tour.user.profile.fullname  %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @tour.location.name %>
+</p>
+
+<p>
+  <strong>Start date time:</strong>
+  <%= @tour.start_date_time %>
+</p>
+
+<p>
+  <strong>End date time:</strong>
+  <%= @tour.end_date_time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tour.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  AUD <%= number_to_currency @tour.price %>
+</p>
+
+
+
+<% if policy(@tour).edit? %>
+  <%= link_to 'Edit', edit_tour_path(@tour) %> |
+<% end %> 
+
+<%= link_to 'Back', tours_path %>

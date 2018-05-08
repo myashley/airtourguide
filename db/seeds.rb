@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+require 'csv'
+
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'languages.csv'))
+csv = CSV.parse(csv_text, headers: true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  language = Language.new
+  language.name = row['Name']
+  language.code = row['Code']
+  language.save
+  puts "#{language.name} saved"
+end
+
+puts "There are now #{Language.count} rows in the transactions table"

@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @location.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @location.description %>
+</p>
+
+
+<% if policy(@location).edit? %>
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<% end %>
+
+<%= link_to 'Back', locations_path %>

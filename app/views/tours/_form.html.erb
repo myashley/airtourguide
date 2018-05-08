@@ -1,0 +1,49 @@
+<%= form_with(model: tour, local: true) do |form| %>
+  <% if tour.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tour.errors.count, "error") %> prohibited this tour from being saved:</h2>
+
+      <ul>
+      <% tour.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>
+  <strong>Tour Guide:</strong>
+  <%= tour.user.profile.fullname  %>
+</p>
+
+  <div class="field">
+    <%= form.label :start_date_time %>
+    <%= form.datetime_select :start_date_time, id: :tour_start_date_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date_time %>
+    <%= form.datetime_select :end_date_time, id: :tour_end_date_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :tour_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, step: 0.5, id: :tour_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :location %> 
+    <%= form.collection_select :locations_id, locations, :id, :name, {selected: tour.location_id}, prompt: true, required: true %>
+    <br>
+    <%= link_to 'Create new location', new_location_path(@location) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

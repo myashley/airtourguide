@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tours</h1>
+
+<p>
+<%= link_to 'Add Tour', new_tour_path %>
+</p>
+
+
+<% @tours.each do |tour| %>
+    <div style="border: 1px; padding: 10px;">
+      <%= link_to tour_path(tour) do %>
+          <%= render 'tour', tour: tour %>
+      <% end %>
+    </div>
+<% end %>
+
+

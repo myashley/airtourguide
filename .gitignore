@@ -18,7 +18,14 @@
 
 .byebug_history
 
+<<<<<<< HEAD
 .DS_Store
+=======
+
+# Ignore public/uploads (shrine uploaded files)
+/public/uploads/
+
+>>>>>>> tour
 .env
 .env.development
 .env.*
