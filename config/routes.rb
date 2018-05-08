@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
 
   get '/profile', to: 'profiles#show'
+  get '/mytours', to: 'tours#mytours', as: :mytours
 
 
 

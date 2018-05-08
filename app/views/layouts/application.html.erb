@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigation', profile: @profile %>
+    <%= render 'layouts/navigation', {tour: @mytours, profile: current_user.profile} %>
 
     <%= yield %>
   </body>

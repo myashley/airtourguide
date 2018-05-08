@@ -10,7 +10,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    #redirect_to :root unless user_signed_in?
     @profile = current_user.profile
   end
 

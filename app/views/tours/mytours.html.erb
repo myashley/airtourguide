@@ -1,0 +1,9 @@
+<h1>My Tours</h1>
+
+<%= link_to 'Add Tour', new_tour_path %>
+
+<% if @mytours.present? %>
+    <%= render 'mytours', mytours: @mytours %>
+<% else %>
+    <p>You don't have any tours yet.</p>
+<% end %>

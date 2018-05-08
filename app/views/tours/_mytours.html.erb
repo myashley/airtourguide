@@ -1,0 +1,19 @@
+<% mytours.each do |tour| %>
+    <p>
+        <%= tour.location.name %>
+    </p>
+    <p>
+        <%= tour.start_date_time %>
+    </p>
+    <p>
+        <%= tour.end_date_time %>
+    </p>
+    <p>
+        <%= tour.description %>
+    </p>
+    <p>
+       AUD <%= number_to_currency tour.price %>
+    </p>
+    <hr>
+<% end %>
+

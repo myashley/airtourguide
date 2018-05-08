@@ -8,9 +8,14 @@ class ToursController < ApplicationController
     authorize @tours
   end
 
+  def mytours
+    @mytours = current_user.tours.all.order(start_date_time: 'ASC')
+  end
+
   # GET /tours/1
   # GET /tours/1.json
   def show
+    @tours = current_user.tours
   end
 
   # GET /tours/new
