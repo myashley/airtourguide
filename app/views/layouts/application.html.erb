@@ -11,8 +11,18 @@
 
   <body>
     <% if user_signed_in? %>
-      <%= render 'layouts/navigation', {tour: @mytours, profile: current_user.profile} %>
+      <%= render 'partials/header', {tour: @mytours, profile: current_user.profile} %>
     <% end %>
+
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </main>
+
     <%= yield %>
   </body>
+  <%= render 'partials/footer' %>
 </html>
+
+
+      
