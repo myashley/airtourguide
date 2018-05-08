@@ -23,4 +23,5 @@
 /public/uploads/
 
 .env
+.env.development
 .env.*
