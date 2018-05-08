@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image data</th>
       <th>Description</th>
       <th>Is profile</th>
       <th>User</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
+        <td><%= photo.image_data %></td>
         <td><%= photo.description %></td>
         <td><%= photo.is_profile %></td>
         <td><%= photo.user %></td>
