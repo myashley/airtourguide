@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180508152225) do
   create_table "photos", force: :cascade do |t|
     t.text "image_data"
     t.text "description"
-    t.boolean "is_profile"
+    t.boolean "is_profile", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
