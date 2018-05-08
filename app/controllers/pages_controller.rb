@@ -5,6 +5,8 @@ class PagesController < ApplicationController
     if user_signed_in?
       @profile = current_user.profile
     end
+
+    @tours = Tour.all.order(start_date_time: 'ASC').limit(21)
   end
 
 end

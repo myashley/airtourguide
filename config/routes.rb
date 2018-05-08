@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :tours
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-
   get '/profile', to: 'profiles#show'
   get '/mytours', to: 'tours#mytours', as: :mytours
 

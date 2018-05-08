@@ -1,9 +1,20 @@
-<% if !user_signed_in? %>
-  <li>
-    <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
+<%= render 'checklogin' %>
 
 <h1>Air Tour Guide</h1>
-<p>Display newly added tours here</p>
-<p>Must login to book tours</p>
+
+<h2>Upcoming tours</h2>
+
+<% @tours.each do |tour| %>
+  <div style="width:300px; padding: 10px">
+    <%= link_to tour_path(tour) do %>
+        <%= render '/tours/tour', tour: tour %>
+    <% end %>
+    <br>
+    <% if policy(tour).edit? %>
+        <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
+    <% end %>
+    <% if policy(tour).destroy? %>
+        <td><%= link_to 'Delete', tour, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </div>   
+<% end %>

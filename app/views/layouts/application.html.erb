@@ -10,8 +10,9 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigation', {tour: @mytours, profile: current_user.profile} %>
-
+    <% if user_signed_in? %>
+      <%= render 'layouts/navigation', {tour: @mytours, profile: current_user.profile} %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
