@@ -70,14 +70,10 @@
 </p>
 
 <p>
-  <strong>Fare per hour (AUD) (default): </strong>
-  <%= number_to_currency @profile.fare_per_hour %>
-</p>
-
-<p>
   <strong>Intro tour guide:</strong>
   <%= @profile.intro_tour_guide %>
 </p>
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<% if policy(@profile).edit? %>
+<%= link_to 'Edit', edit_profile_path(@profile) %>
+<% end %>

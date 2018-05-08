@@ -1,6 +1,6 @@
 class ProfilePolicy < ApplicationPolicy
     def index?
-      true
+      false
     end
    
     def create?
