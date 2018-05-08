@@ -11,6 +11,14 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @profile = current_user.profile
+    @photos = Photo.all
+
+    @photos.each do |photo|
+      if photo.user_id == current_user.id && photo.is_profile
+        @photo = photo
+      end
+    end
+
   end
 
   # GET /profiles/new
