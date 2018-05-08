@@ -15,16 +15,19 @@ class LocationsController < ApplicationController
   # GET /locations/new
   def new
     @location = Location.new
+    @location.user = current_user
   end
 
   # GET /locations/1/edit
   def edit
+    @location = Location.find_or_initialize_by(user: current_user)
   end
 
   # POST /locations
   # POST /locations.json
   def create
     @location = Location.new(location_params)
+    @location.user = current_user
 
     respond_to do |format|
       if @location.save
@@ -69,6 +72,7 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:name, :description, :user_id)
+      params.require(:location).permit(:name, :description)
     end
+
 end

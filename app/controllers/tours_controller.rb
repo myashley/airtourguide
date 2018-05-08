@@ -5,6 +5,7 @@ class ToursController < ApplicationController
   # GET /tours.json
   def index
     @tours = Tour.all
+    authorize @tours
   end
 
   # GET /tours/1
@@ -15,16 +16,21 @@ class ToursController < ApplicationController
   # GET /tours/new
   def new
     @tour = Tour.new
+    @tour.user = current_user
+    authorize @tour
   end
 
   # GET /tours/1/edit
   def edit
+    @tour = Tour.find_or_initialize_by(user: current_user)
   end
 
   # POST /tours
   # POST /tours.json
   def create
     @tour = Tour.new(tour_params)
+    @tour.user = current_user
+    authorize @tour
 
     respond_to do |format|
       if @tour.save
@@ -65,10 +71,11 @@ class ToursController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tour
       @tour = Tour.find(params[:id])
+      authorize @tour
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tour_params
-      params.require(:tour).permit(:start_date_time, :end_date_time, :description, :price, :user_id, :location_id)
+      params.require(:tour).permit(:start_date_time, :end_date_time, :description, :price, :location_id)
     end
 end
