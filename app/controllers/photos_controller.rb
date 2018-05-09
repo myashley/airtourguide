@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_photo, only: [:show, :edit, :update, :destroy, :set_profile]
+  after_action :falsify_all_others, only: [:edit, :update]
 
   # GET /photos
   # GET /photos.json
@@ -73,5 +74,16 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:image, :description, :is_profile)
+    end
+
+    def falsify_all_others
+      if @photo.is_profile
+        Photo.all.where(user_id: current_user.id).update_all(is_profile: false)
+      end
+      set_profile
+    end
+  
+    def set_profile
+      Photo.where(user_id: current_user.id, id: @photo.id).update(is_profile: true)
     end
 end

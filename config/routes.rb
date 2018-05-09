@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'profiles#show'
   get '/mytours', to: 'tours#mytours', as: :mytours
 
-
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

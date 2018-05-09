@@ -2,14 +2,24 @@
 
 
  
-<% if @photo %>
-  <%= image_tag @photo.image_url(:medium) %>
-  <% if policy(@photo).edit? %>
-          <%= link_to 'Edit', edit_photo_path(@photo) %>
-  <% end %>
-<% else %>
-  <%= link_to 'Create profile photo', new_photo_path(@photo) %>
+
+
+
+<% @profile.user.photos.each do |photo| %>
+ <% if photo.is_profile %>
+      <%= image_tag photo.image_url(:medium) %>
+      <% if policy(photo).edit? %>
+          <%= link_to 'Edit', edit_photo_path(photo) %>
+      <% end %>
+  <% else %> 
+      <% if policy(@profile).edit? %>
+        <br>
+        <%= link_to 'Create profile photo', new_photo_path(@photo) %>
+      <% end %>
+  <% end %> 
 <% end %>
+
+
 
 
 <p>

@@ -47,17 +47,13 @@
         <td><%= profile.intro_tour_guide %></td>
         <td><%= profile.user.email %></td>
         <td><%= link_to 'Show', profile %></td>
-        <% if policy(@photo).edit? %>
+        <% if policy(profile).edit? %>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <% end %>
-        <% if policy(@photo).destroy? %>
+        <% if policy(profile).destroy? %>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Profile', new_profile_path %>
