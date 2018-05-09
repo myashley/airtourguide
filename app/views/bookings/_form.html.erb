@@ -11,35 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :traveller_id %>
-    <%= form.text_field :traveller_id, id: :booking_traveller_id %>
-  </div>
+<%= form.hidden_field :tour_guide_id, value: @tour_guide %>
+<%= form.hidden_field :traveller_id, value: @traveller %>
+<%= form.hidden_field :tour_id, value: @tour %>
 
-  <div class="field">
-    <%= form.label :tour_guide_id %>
-    <%= form.text_field :tour_guide_id, id: :booking_tour_guide_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :tour_id %>
-    <%= form.text_field :tour_id, id: :booking_tour_id %>
-  </div>
-
+<% if booking.tour_guide_id == current_user.id %>
   <div class="field">
     <%= form.label :has_paid %>
     <%= form.check_box :has_paid, id: :booking_has_paid %>
   </div>
+<% end %>
 
+<% if booking.has_paid && booking.traveller_id == current_user.id %>
   <div class="field">
     <%= form.label :rating %>
-    <%= form.text_field :rating, id: :booking_rating %>
+    <%= form.number_field :rating, step: 0.5, max: 10, id: :booking_rating %>
   </div>
 
   <div class="field">
     <%= form.label :review %>
     <%= form.text_area :review, id: :booking_review %>
   </div>
+<% end %>
+
+
 
   <div class="actions">
     <%= form.submit %>

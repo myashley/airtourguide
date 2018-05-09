@@ -1,5 +1,6 @@
 class ToursController < ApplicationController
   before_action :set_tour, only: [:show, :edit, :update, :destroy]
+  before_action :set_booked, only: [:mytours]
 
   # GET /tours
   # GET /tours.json
@@ -9,7 +10,8 @@ class ToursController < ApplicationController
   end
 
   def mytours
-    @mytours = current_user.tours.all.order(start_date_time: 'ASC')
+    @mytours = current_user.tours.all.where(has_booked: false).order(start_date_time: 'ASC')
+    @mybookedtours = current_user.bookings_as_tour_guide.all.order(created_at: 'ASC')
   end
 
   # GET /tours/1
@@ -86,4 +88,17 @@ class ToursController < ApplicationController
     def tour_params
       params.require(:tour).permit(:start_date_time, :end_date_time, :description, :price, :location_id)
     end
+
+    def set_booked
+      @bookings = Booking.all
+      @tours = Tour.all
+      @bookings.each do |booking|
+        @tours.each do |tour|
+          if booking.tour_id == tour.id
+            Tour.where(id: tour.id).update(has_booked: true)
+          end
+        end
+      end
+    end
+
 end

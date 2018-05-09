@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_one :location
   has_many :tours
   has_many :photos
-  has_many :bookings_as_tour_guide, class_name: :booking, foreign_key: :tour_guide_id
-  has_many :bookings_as_traveller, class_name: :booking, foreign_key: :traveller_id
+  has_many :bookings_as_tour_guide, class_name: "Booking", foreign_key: :tour_guide_id
+  has_many :bookings_as_traveller, class_name: "Booking", foreign_key: :traveller_id
 
 end

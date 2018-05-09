@@ -15,17 +15,21 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+    @traveller = params[:traveller_id]
+    @tour_guide = params[:tour_guide_id]
+    @tour= params[:tour_id]
   end
 
   # GET /bookings/1/edit
   def edit
+    
   end
 
   # POST /bookings
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-
+    
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
@@ -69,6 +73,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:tour_id, :has_paid, :rating, :review)
-    end
+      params.require(:booking).permit(:tour_guide_id, :traveller_id,:tour_id, :has_paid, :rating, :review)
+    end  
 end

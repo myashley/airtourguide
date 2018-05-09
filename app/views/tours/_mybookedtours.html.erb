@@ -1,0 +1,21 @@
+<% mybookedtours.each do |bookedtour| %>
+    <div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+        Traveller: <%= link_to "#{bookedtour.traveller.profile.fullname}", profile_path(bookedtour.traveller.profile) %>
+        <br>
+        <%= bookedtour.tour.location.name %>
+        <br>
+        <%= bookedtour.tour.start_date_time %>
+        <br>
+        <%= bookedtour.tour.end_date_time %>
+        <br>
+        <%= bookedtour.has_paid ? "Paid" : "Unpaid" %>
+        <br>
+       AUD <%= number_to_currency bookedtour.tour.price %>
+        <br>
+    </div>
+    
+<% end %>
+
+
+
+

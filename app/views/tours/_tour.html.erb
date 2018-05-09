@@ -4,10 +4,19 @@
 <%= tour.description %><br>
 AUD <%= number_to_currency tour.price %><br>
 <%= tour.user.profile.first_name %><br>
-<% if policy(tour).edit? %>
-    <br>
-    <%= link_to 'Edit', edit_tour_path(tour) %> | 
-<% end %>
-<% if policy(tour).destroy? %>
-    <%= link_to 'Delete', tour, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+
+    <% if user_signed_in? %>
+            <% if tour.user_id != current_user.id %>
+                <%= link_to 'Book', new_booking_path(tour_guide_id: tour.user_id, traveller_id: current_user.id, tour_id: tour.id) %>
+            <% end %>
+    <% end %>
+
+    <% if policy(tour).edit? %>
+        <br>
+        <%= link_to 'Edit', edit_tour_path(tour) %> | 
+    <% end %>
+    
+    <% if policy(tour).destroy? %>
+        <%= link_to 'Delete', tour, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+

@@ -13,8 +13,15 @@
 
 <p>
   <strong>Tour Guide:</strong>
-  <%= tour.user.profile.fullname  %>
+    <%= tour.user.profile.fullname %>
 </p>
+
+<div class="field">
+    <%= form.label :location %> 
+    <%= form.collection_select :location_id, locations, :id, :name, {selected: tour.location_id}, prompt: true, required: true %>
+  <br> 
+   <%= link_to 'Create new location', new_location_path(@location) %>
+  </div>
 
   <div class="field">
     <%= form.label :start_date_time %>
@@ -36,12 +43,7 @@
     <%= form.number_field :price, step: 0.5, id: :tour_price %>
   </div>
 
-  <div class="field">
-    <%= form.label :location %> 
-    <%= form.collection_select :location_id, locations, :id, :name, {selected: tour.location_id}, prompt: true, required: true %>
-    <br>
-    <%= link_to 'Create new location', new_location_path(@location) %>
-  </div>
+  
 
   <div class="actions">
     <%= form.submit %>

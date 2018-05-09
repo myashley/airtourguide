@@ -6,7 +6,7 @@ class PagesController < ApplicationController
       @profile = current_user.profile
     end
 
-    @tours = Tour.all.order(start_date_time: 'ASC').limit(21)
+    @tours = Tour.all.where(has_booked: false).order(start_date_time: 'ASC').limit(21)
   end
 
 end

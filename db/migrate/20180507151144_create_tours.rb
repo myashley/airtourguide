@@ -5,6 +5,7 @@ class CreateTours < ActiveRecord::Migration[5.1]
       t.datetime :end_date_time
       t.text :description
       t.decimal :price
+      t.boolean :has_booked, default: false
       t.references :user, foreign_key: true
       t.references :location, foreign_key: true
 

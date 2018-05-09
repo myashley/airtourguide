@@ -31,9 +31,22 @@
 </p>
 
 
+<% if user_signed_in? %>
 
-<% if policy(@tour).edit? %>
-  <%= link_to 'Edit', edit_tour_path(@tour) %> |
-<% end %> 
+    <% if @tour.user_id != current_user.id %>
+        <%= link_to 'Book', new_booking_path(tour_guide_id: @tour.user_id, traveller_id: current_user.id, tour_id: @tour.id) %>
+    <% end %>
 
+    <% if policy(@tour).edit? %>
+        <br>
+        <%= link_to 'Edit', edit_tour_path(@tour) %> | 
+    <% end %>
+
+    <% if policy(@tour).destroy? %>
+        <%= link_to 'Delete', @tour, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+
+<% end %>
+
+<br>
 <%= link_to 'Back', :back %>

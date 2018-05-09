@@ -4,10 +4,14 @@
 
 <h2>Upcoming tours</h2>
 
-<% @tours.each do |tour| %>
-  <div style="border: 1px solid gray; width:300px; padding: 10px; margin: 10px;">
-    <%= link_to tour_path(tour) do %>
-        <%= render '/tours/tour', tour: tour %>
-    <% end %>  
-  </div>   
+<% if @tours.count > 1 %>
+  <% @tours.each do |tour| %>
+    <div style="border: 1px solid gray; width:300px; padding: 10px; margin: 10px;">
+      <%= link_to tour_path(tour) do %>
+          <%= render '/tours/tour', tour: tour %>
+      <% end %>  
+    </div>   
+  <% end %>
+<% else %>
+  <p>No tours has been posted yet.</p>
 <% end %>

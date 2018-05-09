@@ -2,23 +2,28 @@
 
 <p>
   <strong>Traveller:</strong>
-  <%= @booking.traveller %>
+  <%= @booking.traveller.profile.fullname %>
 </p>
 
 <p>
   <strong>Tour guide:</strong>
-  <%= @booking.tour_guide %>
+  <%= @booking.tour_guide.profile.fullname %>
 </p>
 
 <p>
   <strong>Tour:</strong>
-  <%= @booking.tour %>
+  <%= @booking.tour.location.name %>
 </p>
 
 <p>
-  <strong>Has paid:</strong>
-  <%= @booking.has_paid %>
+  <strong>Payment status:</strong>
+  <%= @booking.has_paid ? "Paid" : "Unpaid" %>
 </p>
+
+<% unless @booking.has_paid %>
+    <%= button_to "Pay now" %>
+
+<% else %>
 
 <p>
   <strong>Rating:</strong>
@@ -29,6 +34,9 @@
   <strong>Review:</strong>
   <%= @booking.review %>
 </p>
+<br>
+<%= link_to 'Edit', edit_booking_path(@booking) %>
+<% end %>
 
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>
+
+

@@ -2,9 +2,10 @@
 
 <h1>Profile</h1>
  
-
-<% if @profile.user.photos.where(is_profile: true).count == 0 %>
-    <%= link_to 'Create profile photo', new_photo_path(@photo) %>
+<% if @profile.user == current_user %>
+  <% if @profile.user.photos.where(is_profile: true).count == 0 %>
+      <%= link_to 'Create profile photo', new_photo_path(@photo) %>
+  <% end %>
 <% end %>
 
 <% @profile.user.photos.each do |photo| %>
@@ -15,14 +16,6 @@
       <% end %>
   <% end %>
 <% end %> 
-
-  
-
-
-
-  
-
-
 
 
 <p>
@@ -40,10 +33,12 @@
   <%= @profile.about_me %>
 </p>
 
-<p>
-  <strong>Intro tour guide:</strong>
-  <%= @profile.intro_tour_guide %>
-</p>
+<% if @profile.is_tour_guide %>
+  <p>
+    <strong>About me as a tour guide:</strong>
+    <%= @profile.intro_tour_guide %>
+  </p>
+<% end %>
 
 
 <% if policy(@profile).edit? %>

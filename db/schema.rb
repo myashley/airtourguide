@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180509112134) do
     t.datetime "end_date_time"
     t.text "description"
     t.decimal "price"
+    t.boolean "has_booked", default: false
     t.bigint "user_id"
     t.bigint "location_id"
     t.datetime "created_at", null: false

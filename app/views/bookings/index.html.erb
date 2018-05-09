@@ -18,9 +18,9 @@
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.traveller %></td>
-        <td><%= booking.tour_guide %></td>
-        <td><%= booking.tour %></td>
+        <td><%= booking.traveller.email %></td>
+        <td><%= booking.tour_guide.email %></td>
+        <td><%= booking.tour.location.name %></td>
         <td><%= booking.has_paid %></td>
         <td><%= booking.rating %></td>
         <td><%= booking.review %></td>

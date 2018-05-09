@@ -1,9 +1,20 @@
 <h1>My Tours</h1>
 
+As Tour Guide | 
+
+<br><br>
 <%= link_to 'Add Tour', new_tour_path %>
 
+<h2>Booked Tours</h2>
+<% if @mybookedtours.present? %>
+    <%= render 'mybookedtours', mybookedtours: @mybookedtours %>
+<% else %>
+    <p>You don't have any tours booked yet.</p>
+<% end %>
+
+<h2>Unbooked Tours</h2>
 <% if @mytours.present? %>
     <%= render 'mytours', mytours: @mytours %>
 <% else %>
-    <p>You don't have any tours yet.</p>
+    <p>You don't have any tours unbooked/created yet.</p>
 <% end %>
