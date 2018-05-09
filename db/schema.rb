@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508152225) do
+ActiveRecord::Schema.define(version: 20180509112134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "traveller_id"
+    t.bigint "tour_guide_id"
+    t.bigint "tour_id"
+    t.boolean "has_paid", default: false
+    t.decimal "rating"
+    t.text "review"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_guide_id"], name: "index_bookings_on_tour_guide_id"
+    t.index ["tour_id"], name: "index_bookings_on_tour_id"
+    t.index ["traveller_id"], name: "index_bookings_on_traveller_id"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
@@ -86,6 +100,7 @@ ActiveRecord::Schema.define(version: 20180508152225) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "tours"
   add_foreign_key "locations", "users"
   add_foreign_key "photos", "users"
   add_foreign_key "profiles", "users"
