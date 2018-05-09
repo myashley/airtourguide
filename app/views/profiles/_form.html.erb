@@ -11,6 +11,19 @@
     </div>
   <% end %>
 
+<% if @profile.user.photos.where(is_profile: true).count == 0 %>
+    <%= link_to 'Create profile photo', new_photo_path(@photo) %>
+<% end %>
+
+<% @profile.user.photos.each do |photo| %>
+  <% if photo.is_profile %>
+      <%= image_tag photo.image_url(:medium) %>
+      <% if policy(photo).edit? %>
+          <%= link_to 'Edit', edit_photo_path(photo) %>
+      <% end %>
+  <% end %>
+<% end %> 
+
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name, id: :profile_first_name %>
