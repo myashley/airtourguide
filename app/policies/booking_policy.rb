@@ -1,4 +1,4 @@
-class TourPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
     def index?
       false
     end

@@ -13,14 +13,6 @@ class ApplicationController < ActionController::Base
       redirect_to(request.referrer || root_path)
     end
 
-    # def after_sign_up_path_for(user)
-    #   edit_profile_path(user.profile)
-    # end
-
-    # def after_sign_in_path_for(resource)
-    #   if user.profile.nil
-    #   profile_path(resource.profile) if resource.profile.nil?
-    # end
 
   # private
   #   def set_time_zone
