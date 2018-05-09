@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_one :location
-  has_and_belongs_to_many :languages
   has_many :tours
   has_many :photos
 

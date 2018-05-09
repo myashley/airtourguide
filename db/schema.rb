@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 20180508152225) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "languages", force: :cascade do |t|
-    t.string "name"
-    t.string "code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -34,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180508152225) do
   create_table "photos", force: :cascade do |t|
     t.text "image_data"
     t.text "description"
-    t.boolean "is_profile", default: false
+    t.boolean "is_profile"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,13 +54,6 @@ ActiveRecord::Schema.define(version: 20180508152225) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
-  create_table "speaks", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "language_id"
-    t.index ["language_id"], name: "index_speaks_on_language_id"
-    t.index ["user_id"], name: "index_speaks_on_user_id"
   end
 
   create_table "tours", force: :cascade do |t|
@@ -103,8 +89,6 @@ ActiveRecord::Schema.define(version: 20180508152225) do
   add_foreign_key "locations", "users"
   add_foreign_key "photos", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "speaks", "languages"
-  add_foreign_key "speaks", "users"
   add_foreign_key "tours", "locations"
   add_foreign_key "tours", "users"
 end
