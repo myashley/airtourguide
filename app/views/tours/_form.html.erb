@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= form.label :location %> 
-    <%= form.collection_select :locations_id, locations, :id, :name, {selected: tour.location_id}, prompt: true, required: true %>
+    <%= form.collection_select :location_id, locations, :id, :name, {selected: tour.location_id}, prompt: true, required: true %>
     <br>
     <%= link_to 'Create new location', new_location_path(@location) %>
   </div>
