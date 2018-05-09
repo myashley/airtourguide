@@ -12,13 +12,11 @@ class ProfilesController < ApplicationController
   def show
     @profile = current_user.profile
     @photos = Photo.all
-
     @photos.each do |photo|
       if photo.user_id == current_user.id && photo.is_profile
         @photo = photo
       end
     end
-
   end
 
   # GET /profiles/new
@@ -28,7 +26,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    @profile = Profile.find_or_initialize_by(user: current_user)
+    @profile.user = current_user
   end
 
   # POST /profiles

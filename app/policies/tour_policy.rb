@@ -1,6 +1,6 @@
 class TourPolicy < ApplicationPolicy
     def index?
-      true
+      false
     end
    
     def create?

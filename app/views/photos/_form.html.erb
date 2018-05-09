@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+<% if !photo.is_profile.nil? %>
+  <%= image_tag photo.image_url(:medium) %>
+<% end %>
+
   <div class="field">
     <%= form.label :image_data %>
     <%= form.hidden_field :image, value: photo.cached_image_data %>
@@ -21,9 +25,9 @@
     <%= form.label :description %>
     <%= form.text_area :description, id: :photo_description %>
   </div>
-
+  
   <div class="field">
-    <%= form.label :is_profile %>
+    <%= form.label :profile_photo %>
     <%= form.check_box :is_profile, id: :photo_is_profile %>
   </div>
 

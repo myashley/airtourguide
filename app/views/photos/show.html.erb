@@ -16,10 +16,10 @@
 </p>
 
 <p>
-  <strong>Is profile:</strong>
+  <strong>Profile Photo:</strong>
   <%= @photo.is_profile %>
 </p>
 
 <% if policy(@photo).edit? %>
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Edit', edit_photo_path(@photo) %>
 <% end %>

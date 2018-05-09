@@ -27,7 +27,9 @@
 
   <tbody>
     <% @profiles.each do |profile| %>
+ 
       <tr>
+      <td><%= profile.id %></td>
         <td><%= profile.first_name %></td>
         <td><%= profile.last_name %></td>
         <td><%= profile.street_address %></td>
@@ -43,10 +45,14 @@
         <td><%= profile.has_car %></td>
         <td><%= profile.has_historical_knowledge %></td>
         <td><%= profile.intro_tour_guide %></td>
-        <td><%= profile.user %></td>
+        <td><%= profile.user.email %></td>
         <td><%= link_to 'Show', profile %></td>
+        <% if policy(@photo).edit? %>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <% end %>
+        <% if policy(@photo).destroy? %>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

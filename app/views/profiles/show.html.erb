@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @photo.image_url(:medium) %>
+
+ 
+<% if @photo %>
+  <%= image_tag @photo.image_url(:medium) %>
+  <% if policy(@photo).edit? %>
+          <%= link_to 'Edit', edit_photo_path(@photo) %>
+  <% end %>
+<% else %>
+  <%= link_to 'Create profile photo', new_photo_path(@photo) %>
+<% end %>
 
 
 <p>
@@ -18,10 +27,13 @@
   <%= @profile.about_me %>
 </p>
 
+<p>
+  <strong>Intro tour guide:</strong>
+  <%= @profile.intro_tour_guide %>
+</p>
 
 
-
-
+<% if policy(@profile).edit? %>
 <p>
   <strong>Street address:</strong>
   <%= @profile.street_address %>
@@ -72,11 +84,7 @@
   <%= @profile.has_historical_knowledge %>
 </p>
 
-<p>
-  <strong>Intro tour guide:</strong>
-  <%= @profile.intro_tour_guide %>
-</p>
 
-<% if policy(@profile).edit? %>
 <%= link_to 'Edit', edit_profile_path(@profile) %>
 <% end %>
+
