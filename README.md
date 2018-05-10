@@ -18,28 +18,34 @@ The app also provides opportunities for anyone who wishes to become a local tour
 
 ## Planning
 ### User Stories
-Trello
+![Trello](/app/assets/images/trello.png)
 
 ### Entity Relationship Diagram
-
+![ERD](/app/assets/images/erd.png)
 
 
 ## Design
 ### Concept
 
-
 ### Moodboard
-
+![Moodboard](/app/assets/images/arg-moodboard.png)
 
 ### Logo
+![Logo](/app/assets/images/logo1.png)
 
+### Colour Palette
+![Colour-Palette](/app/assets/images/atg-colour-palette.png)
+
+### Typography
+![Wireframes](/app/assets/images/raleway.png)
 
 ### Wireframes
-
+![Wireframes](/app/assets/images/figma.png)
 
 
 ## Build
 ### MVP
+![MVP](/app/assets/images/mvp.png)
 
 ### Challenges
 
