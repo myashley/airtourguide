@@ -1,12 +1,11 @@
 <%= render 'checklogin' %>
 
-<h1>Air Tour Guide</h1>
+<h1>Upcoming tours</h1>
 
-<h2>Upcoming tours</h2>
-
+<div class="flex-container">
 <% if @tours.count > 0 %>
   <% @tours.each do |tour| %>
-    <div style="border: 1px solid gray; width:300px; padding: 10px; margin: 10px;">
+    <div class="flex-item">
       <%= link_to tour_path(tour) do %>
           <%= render '/tours/tour', tour: tour %>
       <% end %>  
@@ -15,3 +14,4 @@
 <% else %>
   <p>No tours has been posted yet.</p>
 <% end %>
+</div>
