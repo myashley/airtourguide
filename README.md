@@ -2,7 +2,7 @@
 ## About Project
 “Air Tour Guide” is a web platform for people who enjoy customised private tours, flexibilities, and explore interesting places wherever they go.
 
-URL: http://airtourguide
+URL: https://airtourguide.herokuapp.com/
 
 ### Problem
 Many people would like to travel by themselves, with friends, with families, but complete strangers. Joining a group tour with tight schedules, wasting time going to unwanted places, bearing with a big group of random tour members during their precious holiday time might seem like a nightmare.
@@ -26,6 +26,9 @@ The app also provides opportunities for anyone who wishes to become a local tour
 
 ## Design
 ### Concept
+Keyword: Explore, friendly, peace of mind
+
+Aim expression: Excited, easy to follow, stress free, clean and clear, curiousity, flexible
 
 ### Moodboard
 ![Moodboard](/app/assets/images/arg-moodboard.png)
@@ -48,5 +51,11 @@ The app also provides opportunities for anyone who wishes to become a local tour
 ![MVP](/app/assets/images/mvp.png)
 
 ### Challenges
+Due to time and skills constraints, the project doesn't quite meet what I've planned and expected. 
+
+However, during the process of development I found myself familarised more with rails and be able to toggle around later in the stage.
+
+It's a challenged but also fun project, great for slim down too without much eats and sleeps.
 
 ### Future Development
+There are still quite a lot to deploy in the future path, and it would be excited to implement more features later on. Tasks and features that were planned are the first to go about. 
