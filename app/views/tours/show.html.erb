@@ -2,7 +2,7 @@
 
 <p>
   <strong>Tour Guide:</strong>
-  <%= @tour.user.profile.fullname  %>
+  <%= link_to @tour.user.profile.fullname, profile_path(@tour.user.profile) %>
 </p>
 
 <p>

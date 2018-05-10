@@ -1,21 +1,21 @@
-<h1>Send a message</h1>
+<h1>Send Message</h1>
+<p>
+    <strong>From:</strong>  <%= current_user.profile.fullname %> [<%= current_user.email %>]
+</p>
+<p>
+    <strong>To:</strong> <%= link_to @receiver.profile.fullname, profile_path(@receiver.profile) %> 
+</p>
 
-To: 
 
 <%= form_for :contact do |f| %>
+<%= f.hidden_field :name, value: current_user.profile.fullname %>   
+<%= f.hidden_field :receiver, value: @receiver.email %>  
 
-<%= form.hidden_field :receiver, value: @receiver %>   
-
-
-    <p>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-    </p>
     <p>
         <%= f.label :message %>
-        <%= f.text_field :message %>
+        <%= f.text_area :message %>
     </p>
     <p>
-        <%= f.submit %>      
+        <%= f.submit "Send" %>      
     </p>  
 <% end %>

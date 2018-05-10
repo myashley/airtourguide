@@ -5,8 +5,8 @@ class ContactMailer < ApplicationMailer
         @sender = user_info[:sender] 
         @name = user_info[:name] 
         @message = user_info[:message] 
-        receiver_email = 
+        receiver = user_info[:receiver] 
         subject = "[Air Tour Guide] You have a new message"
-        mail(to: receiver_email, subject: subject)
+        mail(to: receiver, subject: subject)
     end
 end

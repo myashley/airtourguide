@@ -40,6 +40,9 @@
   </p>
 <% end %>
 
+<% if @profile.user != current_user %>
+<%= link_to 'Contact Me', contact_path(user: @profile.user) %>
+<% end %>
 
 <% if policy(@profile).edit? %>
 <p>

@@ -1,15 +1,11 @@
-<h1>
-You have a new message:
-</h1>
+<h3>
+Hello! <%= @name %> from Air Tour Guide has sent you a message:
+</h3>
 
 <p><b>From: </b>
-<%= @sender.email %>
+<%= @name %> [<%= @sender %>]
 </p>
 
-<p><b>Name: </b>
-<%= @name %>
-</p>
-
-<p><b>Message: </b>
+<p>
 <%= @message %>
 </p>

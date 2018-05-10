@@ -10,23 +10,26 @@ class PagesController < ApplicationController
   end
 
   def contact 
-    @user= params[:user]
+    @receiver = User.find(params[:user])
   end
 
   def contact_email
+
     user_info = {
-      sender: current_user, 
+      sender: current_user.email, 
       name: email_params[:name],
-      message: email_params[:message]
+      message: email_params[:message],
       receiver: email_params[:receiver]
     }
     ContactMailer.send_contact_email(user_info).deliver_now
-    render :contact
+    
+    redirect_back fallback_location: contact_path 
+    flash["alert"] = "Your message has been sent successfully!"
   end
   
   private
   def email_params
-    params.require(:contact).permit(:name, :message, :receiver)
+    params.require(:contact).permit(:name, :receiver, :message)
   end 
 
 end
