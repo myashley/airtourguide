@@ -13,7 +13,7 @@ gem 'pundit', '~> 1.1'
 gem 'country_select', '~> 3.1', '>= 3.1.1'
 gem 'shrine', '~> 2.11'
 gem 'image_processing', '~> 1.2'
-
+gem 'stripe', '~> 3.14'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
