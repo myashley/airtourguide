@@ -1,4 +1,6 @@
 <h1>Send Message</h1>
+<div class="flex-container">
+<div class="flex-item wide">
 <p>
     <strong>From:</strong>  <%= current_user.profile.fullname %> [<%= current_user.email %>]
 </p>
@@ -19,3 +21,5 @@
         <%= f.submit "Send" %>      
     </p>  
 <% end %>
+</div>
+</div>

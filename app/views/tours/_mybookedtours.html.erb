@@ -1,5 +1,7 @@
+<div class="flex-container">
+
 <% mybookedtours.each do |bookedtour| %>
-    <div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+    <div class="flex-item">
         Traveller: <%= link_to "#{bookedtour.traveller.profile.fullname}", profile_path(bookedtour.traveller.profile) %>
         <br>
         <%= bookedtour.tour.location.name %>
@@ -18,6 +20,7 @@
     
 <% end %>
 
+</div>
 
 
 

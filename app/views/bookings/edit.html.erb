@@ -1,9 +1,14 @@
+
+<div class="flex-container">
+<div class="flex-item">
 <% if @booking.has_paid && @booking.traveller_id == current_user.id %>
-    <h1>Review</h1>
+    <h2>Review</h2>
 <% else %>
-    <h1>Editing Booking</h1>
+    <h2>Editing Booking</h2>
 <% end %>
 
 <%= render 'form', booking: @booking %>
 
 <%= link_to 'Show', @booking %> |
+</div>
+</div>

@@ -69,7 +69,10 @@ footer {
     padding: 1em;
     background: rgba(86, 204, 242, 0.3);
 }
-
+.wide {
+    width: 25em;
+    padding: 1.4em;
+}
 
 
 
@@ -82,6 +85,19 @@ h1 {
     line-height: 1.2em;
     color: #FCEE21;
     border-bottom: 0.1em solid #FDAD28;
+}
+h2 {
+    margin: 1.1em 0 0.5em 0;
+    padding-bottom: 0.2em;
+    line-height: 1.2em;
+    color: #FCEE21;
+    border-bottom: 0.1em solid #FDAD28;
+    font-weight: 500;
+
+}
+h3 {
+    margin: 0.3em 0 0 0;
+    font-size: 1.4em;
 }
 
 
@@ -152,12 +168,16 @@ img.logo {
     margin: 1em 0.2em 0.2em 0;
     float: left;
 }
+img.logo-large {
+    width: 65%;
+    text-align: right;
+}
 img.user {
     margin: 1.3em 0.9em 0.2em 0.2em;
     float: right;
 }
 .thumb {
-    padding-bottom: 0.3em;
+    padding-bottom: 0.7em !important;
     float: left;
 }
 
@@ -243,7 +263,9 @@ input[type="submit"]:hover {
 .center{
     text-align: center;
 }
-
+.go-right{
+    text-align: right;
+}
 
 
 

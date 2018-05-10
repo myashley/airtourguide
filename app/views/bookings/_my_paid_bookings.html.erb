@@ -1,5 +1,6 @@
+<div class="flex-container">
 <% my_paid_bookings.each do |paidbooking| %>
-    <div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+    <div class="flex-item">
         Tour Guide: <%= link_to "#{paidbooking.tour_guide.profile.fullname}", profile_path(paidbooking.tour_guide.profile) %>
         <br>
         <%= paidbooking.tour.location.name %>
@@ -20,3 +21,4 @@
 
     
 <% end %>
+</div>

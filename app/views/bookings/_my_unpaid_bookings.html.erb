@@ -1,5 +1,6 @@
+<div class="flex-container">
 <% my_unpaid_bookings.each do |booking| %>
-    <div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+    <div class="flex-item">
     Tour Guide: <%= link_to "#{booking.tour_guide.profile.fullname}", profile_path(booking.tour_guide.profile) %>
         <br>
         <%= booking.tour.location.name %>
@@ -12,9 +13,8 @@
         <br>
        AUD <%= number_to_currency booking.tour.price %>
         <br>
-        <%= link_to 'View', booking_path(booking) %> | 
-        <%= link_to 'Pay now', booking %>
+        <%= link_to 'View', booking_path(booking) %>
+        <%= link_to 'Pay now', booking, class: "button right" %>
     </div>
-    
 <% end %>
-
+</div>

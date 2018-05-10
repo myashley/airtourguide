@@ -1,16 +1,19 @@
+
+
+<h3><%= tour.location.name %></h3><br>
+
 <% tour.user.photos.each do |photo| %>
   <% if photo.is_profile %>
       <%= image_tag photo.image_url(:thumb), class: "thumb" %>
   <% end %>
 <% end %> 
 
+<strong>Tour Guide:</strong> <%= tour.user.profile.first_name %><br>
+<strong>From:</strong> <%= tour.start_date_time %><br>
+<strong>To:</strong> <%= tour.end_date_time %><br>
+<strong>Tour:</strong> <%= tour.description %><br>
+<strong>Price:</strong> AUD <%= number_to_currency tour.price %><br>
 
-<%= tour.location.name %><br>
-<%= tour.start_date_time %><br>
-<%= tour.end_date_time %><br>
-<%= tour.description %><br>
-AUD <%= number_to_currency tour.price %><br>
-<%= tour.user.profile.first_name %><br>
 
     <% if user_signed_in? %>
             <% if tour.user_id != current_user.id %>

@@ -1,12 +1,12 @@
 
-
+<div class="flex-container">
+<div class="flex-item">
 <p>
   <strong>User:</strong>
   <%= @photo.user.profile.fullname %>
 </p>
 
 <p>
-  <strong>Image data:</strong>
   <%= image_tag @photo.image_url(:medium) %>
 </p>
 
@@ -17,9 +17,12 @@
 
 <p>
   <strong>Profile Photo:</strong>
-  <%= @photo.is_profile %>
+  <%= @photo.is_profile ? "Yes" : "No" %>
 </p>
 
 <% if policy(@photo).edit? %>
-<%= link_to 'Edit', edit_photo_path(@photo) %>
+<%= link_to 'Edit', edit_photo_path(@photo), class: "right" %>
 <% end %>
+
+</div>
+</div>

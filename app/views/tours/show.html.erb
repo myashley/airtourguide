@@ -1,4 +1,10 @@
-
+<div class="flex-container">
+<div class="flex-item">
+<% @tour.user.photos.each do |photo| %>
+  <% if photo.is_profile %>
+      <%= image_tag photo.image_url(:medium) %>
+  <% end %>
+<% end %> 
 
 <p>
   <strong>Tour Guide:</strong>
@@ -11,12 +17,12 @@
 </p>
 
 <p>
-  <strong>Start date time:</strong>
+  <strong>From:</strong>
   <%= @tour.start_date_time %>
 </p>
 
 <p>
-  <strong>End date time:</strong>
+  <strong>To:</strong>
   <%= @tour.end_date_time %>
 </p>
 
@@ -34,19 +40,22 @@
 <% if user_signed_in? %>
 
     <% if @tour.user_id != current_user.id %>
-        <%= link_to 'Book', new_booking_path(tour_guide_id: @tour.user_id, traveller_id: current_user.id, tour_id: @tour.id) %>
+        <%= link_to 'Book', new_booking_path(tour_guide_id: @tour.user_id, traveller_id: current_user.id, tour_id: @tour.id), class: "button" %>
     <% end %>
+
 
     <% if policy(@tour).edit? %>
         <br>
-        <%= link_to 'Edit', edit_tour_path(@tour) %> | 
+        <%= link_to 'Edit', edit_tour_path(@tour), class: "right" %> 
     <% end %>
 
     <% if policy(@tour).destroy? %>
-        <%= link_to 'Delete', @tour, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', @tour, method: :delete, data: { confirm: 'Are you sure?' }, class: "right" %>
     <% end %>
 
 <% end %>
 
 <br>
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', :back, class: "left" %>
+</div>
+</div>

@@ -1,11 +1,13 @@
 <h1>My Tours - As Tour Guide</h1>
 
-As Tour Guide | <%= link_to "As Traveller", mybookings_path %>
+<span class="blue">As Tour Guide</span> | <%= link_to "As Traveller", mybookings_path %>
 
 <br><br>
-<%= link_to 'Add Tour', new_tour_path %>
+<%= link_to 'Add Tour', new_tour_path, class: "button" %>
+
 
 <h2>Booked Tours</h2>
+
 <% if @mybookedtours.present? %>
     <%= render 'mybookedtours', mybookedtours: @mybookedtours %>
 <% else %>
