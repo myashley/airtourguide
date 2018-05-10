@@ -1,6 +1,9 @@
-<h1>Editing Booking</h1>
+<% if @booking.has_paid && @booking.traveller_id == current_user.id %>
+    <h1>Review</h1>
+<% else %>
+    <h1>Editing Booking</h1>
+<% end %>
 
 <%= render 'form', booking: @booking %>
 
 <%= link_to 'Show', @booking %> |
-<%= link_to 'Back', bookings_path %>

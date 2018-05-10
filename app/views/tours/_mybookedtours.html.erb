@@ -12,6 +12,8 @@
         <br>
        AUD <%= number_to_currency bookedtour.tour.price %>
         <br>
+        <%= link_to 'View', booking_path(bookedtour) %> | 
+        <%= link_to 'Delete', bookedtour, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
     
 <% end %>

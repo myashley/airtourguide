@@ -1,5 +1,7 @@
 <% my_unpaid_bookings.each do |booking| %>
     <div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+    Tour Guide: <%= link_to "#{booking.tour_guide.profile.fullname}", profile_path(booking.tour_guide.profile) %>
+        <br>
         <%= booking.tour.location.name %>
         <br>
         <%= booking.tour.start_date_time %>
@@ -10,13 +12,8 @@
         <br>
        AUD <%= number_to_currency booking.tour.price %>
         <br>
-        <% if policy(booking).edit? %>
-            <%= link_to 'Edit', edit_booking_path(booking) %>  
-        <% end %>
-
-        <% if policy(booking).destroy? %>
-            <%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+        <%= link_to 'View', booking_path(booking) %> | 
+        <%= link_to 'Pay now', booking %>
     </div>
     
 <% end %>

@@ -28,6 +28,9 @@ class BookingsController < ApplicationController
 
   # GET /bookings/1/edit
   def edit
+    @traveller = @booking.traveller_id
+    @tour_guide = @booking.tour_guide_id
+    @tour= @booking.tour_id
     
   end
 
@@ -79,6 +82,10 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
+    @traveller = @booking.traveller_id
+    @tour_guide = @booking.tour_guide_id
+    @tour= @booking.tour_id
+    
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }

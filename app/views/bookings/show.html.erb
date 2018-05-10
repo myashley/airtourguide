@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Booking</h1>
+
 <p>
   <strong>Traveller:</strong>
   <%= @booking.traveller.profile.fullname %>
@@ -30,23 +32,26 @@
   <%= @booking.has_paid ? "Paid" : "Unpaid" %>
 </p>
 
-<% unless @booking.has_paid %>
-    <%= render 'charge_form', booking: @booking, user: current_user %>
 
-<% else %>
+<% if @booking.traveller_id == current_user.id %>
+  <% unless @booking.has_paid %>
+        <%= render 'charge_form', booking: @booking, user: current_user %>
+  <% else %>
+    <p>
+      <strong>Rating:</strong>
+      <%= @booking.rating %>
+    </p>
+    <p>
+      <strong>Review:</strong>
+      <%= @booking.review %>
+    </p>
+    <br>
+    <%= link_to 'Review', edit_booking_path(@booking) %>
+  <% end %>  
 
-  <p>
-    <strong>Rating:</strong>
-    <%= @booking.rating %>
-  </p>
-
-  <p>
-    <strong>Review:</strong>
-    <%= @booking.review %>
-  </p>
-  <br>
-  <%= link_to 'Edit', edit_booking_path(@booking) %>
-
+  <% elsif @booking.tour_guide_id == current_user.id %>
+      <%= link_to 'Edit Payment Status', edit_booking_path(@booking) %>
+      
 <% end %>
 
 

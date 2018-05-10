@@ -11,10 +11,17 @@
     </div>
   <% end %>
 
-<%= form.hidden_field :tour_guide_id, value: @tour_guide %>
-<%= form.hidden_field :traveller_id, value: @traveller %>
-<%= form.hidden_field :tour_id, value: @tour %>
 
+
+<% if booking.has_paid %>
+  <%= form.hidden_field :tour_guide_id, value: booking.tour_guide_id %>
+  <%= form.hidden_field :traveller_id, value: booking.traveller_id %>
+  <%= form.hidden_field :tour_id, value: booking.tour_id %>
+<% else %>
+  <%= form.hidden_field :tour_guide_id, value: @tour_guide %>
+  <%= form.hidden_field :traveller_id, value: @traveller %>
+  <%= form.hidden_field :tour_id, value: @tour %>
+<% end %>
 
 <% if booking.tour_guide_id == current_user.id %>
   <div class="field">

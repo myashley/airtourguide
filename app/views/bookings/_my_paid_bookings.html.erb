@@ -13,7 +13,10 @@
         <%= paidbooking.has_paid ? "Paid" : "Unpaid" %>
         <br>
        AUD <%= number_to_currency paidbooking.tour.price %>
-        <br>
+       <br>
+        <%= link_to 'View', booking_path(paidbooking) %> | 
+        <%= link_to 'Review', edit_booking_path(paidbooking) %>
     </div>
+
     
 <% end %>
