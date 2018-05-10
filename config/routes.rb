@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get '/profile', to: 'profiles#show'
   get '/mytours', to: 'tours#mytours', as: :mytours
   get '/mybookings', to: 'bookings#mybookings', as: :mybookings
-
+  get '/contact', to: 'pages#contact'
+  post '/contact', to: 'pages#contact_email'
   
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

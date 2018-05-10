@@ -1,0 +1,21 @@
+<h1>Send a message</h1>
+
+To: 
+
+<%= form_for :contact do |f| %>
+
+<%= form.hidden_field :receiver, value: @receiver %>   
+
+
+    <p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :message %>
+        <%= f.text_field :message %>
+    </p>
+    <p>
+        <%= f.submit %>      
+    </p>  
+<% end %>
