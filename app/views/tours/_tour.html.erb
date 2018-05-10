@@ -1,3 +1,10 @@
+<% tour.user.photos.each do |photo| %>
+  <% if photo.is_profile %>
+      <%= image_tag photo.image_url(:thumb), class: "thumb" %>
+  <% end %>
+<% end %> 
+
+
 <%= tour.location.name %><br>
 <%= tour.start_date_time %><br>
 <%= tour.end_date_time %><br>
@@ -7,10 +14,11 @@ AUD <%= number_to_currency tour.price %><br>
 
     <% if user_signed_in? %>
             <% if tour.user_id != current_user.id %>
-                <%= link_to 'Book', new_booking_path(tour_guide_id: tour.user_id, traveller_id: current_user.id, tour_id: tour.id) %>
+                <%= link_to 'Book', new_booking_path(tour_guide_id: tour.user_id, traveller_id: current_user.id, tour_id: tour.id), class: "button right" %>
             <% end %>
     <% end %>
 
+<div class="right">
     <% if policy(tour).edit? %>
         <br>
         <%= link_to 'Edit', edit_tour_path(tour) %> | 
@@ -19,4 +27,4 @@ AUD <%= number_to_currency tour.price %><br>
     <% if policy(tour).destroy? %>
         <%= link_to 'Delete', tour, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
-
+</div>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'pages#home'
+  #root 'pages#home'
+  root 'pages#index'
   
   resources :bookings do
     member do

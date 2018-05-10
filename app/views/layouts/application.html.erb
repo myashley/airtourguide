@@ -16,13 +16,27 @@
   <body>
   <div class="wrapper">
     <header>
-      <% if user_signed_in? %>
-        <%= render 'partials/header', {tour: @mytours, profile: current_user.profile} %>
+
+      <%= link_to root_path do %>
+      <%=image_tag "logo-80.png", class: "logo" %>
+      <% end %>
+
+      <% if !user_signed_in? %>
+          <%= link_to new_user_session_path, class: "profile-icon noline" do %>
+            <%= image_tag "icon-user.png", class: "user"%>
+            <span class="user-name">Login</span>
+          <% end %>
+      <% else %>
+          <%= link_to profile_path(current_user.profile), class: "profile-icon noline center" do %>
+            <%= image_tag "icon-user.png", class: "user" %>
+            <span class="user-name"><%= current_user.profile.first_name %></span>
+          <% end %>
+          <%= render 'partials/header', {tour: @mytours, profile: current_user.profile} %>
       <% end %>
     </header>
     <main>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <p id="notice"><%= notice %></p>
+        <p id="alert"><%= alert %></p>
         <%= yield %>
     </main>
     <footer>

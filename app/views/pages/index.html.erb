@@ -1,0 +1,39 @@
+<%=image_tag "logo-500.png" %>
+
+<h1>Login</h1>
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image_data %>
+    <%= form.hidden_field :image, value: photo.cached_image_data %>
+    <%= form.file_field :image, id: :photo_image_data %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_photo %>
+    <%= form.check_box :is_profile, id: :photo_is_profile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :photo_description %>
+  </div>
+  
+  
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+

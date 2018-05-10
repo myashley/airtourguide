@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Profile</h1>
+
+<div class="flex-container">
+<div class="flex-item profile-box">
  
 <% if @profile.user == current_user %>
   <% if @profile.user.photos.where(is_profile: true).count == 0 %>
-      <%= link_to 'Create profile photo', new_photo_path(@photo) %>
+      <%= link_to 'Create profile photo', new_photo_path(@photo), class: "right" %>
   <% end %>
 <% end %>
 
@@ -12,7 +15,7 @@
   <% if photo.is_profile %>
       <%= image_tag photo.image_url(:medium) %>
       <% if policy(photo).edit? %>
-          <%= link_to 'Edit', edit_photo_path(photo) %>
+          <%= link_to 'Edit', edit_photo_path(photo), class: "right" %>
       <% end %>
   <% end %>
 <% end %> 
@@ -96,6 +99,8 @@
 </p>
 
 
-<%= link_to 'Edit', edit_profile_path(@profile) %>
+<%= link_to 'Edit', edit_profile_path(@profile), class: "right" %>
 <% end %>
 
+</div>
+</div>

@@ -14,12 +14,19 @@
  *= require_self
  */
 
+
+
+
  /* Root */
  * {
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
     color: #FFFFFF;
 }
+
+
+
+
 
 /* Grid */
 body {
@@ -36,11 +43,11 @@ body {
 }
 header {
     grid-area: header;
-    display: grid;
-    margin: 0.5em auto;
+    margin: 0;
 } 
 nav{
-    margin: 0 auto;
+    margin: 0 auto 1em auto;
+    text-align: center;
 }
 main {
     grid-area: main;
@@ -64,6 +71,8 @@ footer {
 }
 
 
+
+
 /* Heading */
 h1 {
     font-size: 2em;
@@ -76,15 +85,37 @@ h1 {
 }
 
 
+
+
+
 /* Text */
 strong {
     font-weight: 500;
 }
+.yellow {
+    color: #FCEE21;
+}
+.blue {
+    color: #56CCF2;
+    border-top: 0.2em solid #56CCF2;
+    border-bottom: 0.2em solid #56CCF2;
+    padding: 0.2em;
+}
+.green {
+    color: #6FCF97;
+}
+.orange {
+    color: #FDAD28;
+}
 
-/* Links */
+
+
+
+
+
+/* Link */
 a, a:link, a:visited {
-    text-decoration: none;
-    color: #FFFFFF;
+    color: #FCEE21;
     margin: 1em 0.3em;
     display: inline-grid;
     padding: 0.1em;
@@ -93,13 +124,51 @@ a, a:link, a:visited {
 }
 a:hover {
     color: #FDAD28;
-    background: #000000;
+}
+.profile-icon {
+    float: right;
 }
 nav > a {
-
+    text-decoration: none;
+}
+.noline {
+    text-decoration: none !important;
 }
 
-/* Forms */
+
+
+
+
+
+
+
+
+
+
+
+
+/* Image */
+img.logo {
+    margin: 1em 0.2em 0.2em 0;
+    float: left;
+}
+img.user {
+    margin: 1.3em 0.9em 0.2em 0.2em;
+    float: right;
+}
+.thumb {
+    padding-bottom: 0.3em;
+    float: left;
+}
+
+
+
+
+
+
+
+
+/* Form */
 form {
     max-width: 35em;  
     margin: 0 auto; 
@@ -120,4 +189,84 @@ textarea {
 input[type="checkbox"] {
     width: 1.5em;
 }
+input[type="submit"] {
+    width: 10em;
+    background: #FCEE21;
+    border: 0;
+    color: #4F4F4F;
+    margin-top: 5px;
+    text-align: center;  
+    float: right;
+    margin-left: 1em;
+    border-radius: 0.5em;
+}
+input[type="submit"]:hover {
+    background: #FDAD28;
+    color: #4F4F4F;
+}
+.button {
+    display: inline-block;
+    background: #FCEE21 !important;
+    border: 0;
+    color: #4F4F4F !important;  
+    padding: 0.5em 0.8em !important;
+    text-decoration: none;
+    border-radius: 0.5em;
+    font-weight: 400;
+}
+.button:hover {
+    background: #FDAD28 !important;   
+}
 
+
+
+
+
+
+
+
+/* Position */
+.user-name {
+    margin-top: 0.5em;
+    color: #FCEE21;
+    margin-right: 0.7em;
+    text-align:center;
+}
+.right {
+    float: right;
+    text-align: center;
+}
+.left {
+    float: left;
+    text-align: center;
+}
+.center{
+    text-align: center;
+}
+
+
+
+
+/* Alert */
+#notice {
+    color: #FDAD28;
+  }
+  
+#alert {
+    color: #FDAD28;
+}
+
+.field_with_errors {
+padding: 2px;
+background-color: red;
+display: table;
+}
+
+#error_explanation {
+width: 450px;
+border: 2px solid red;
+padding: 7px 7px 0;
+margin-bottom: 20px;
+background-color: #f0f0f0;
+}
+  
