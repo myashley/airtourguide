@@ -1,0 +1,23 @@
+<% my_unpaid_bookings.each do |booking| %>
+    <div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+        <%= booking.tour.location.name %>
+        <br>
+        <%= booking.tour.start_date_time %>
+        <br>
+        <%= booking.tour.end_date_time %>
+        <br>
+        <%= booking.tour.description %>
+        <br>
+       AUD <%= number_to_currency booking.tour.price %>
+        <br>
+        <% if policy(booking).edit? %>
+            <%= link_to 'Edit', edit_booking_path(booking) %>  
+        <% end %>
+
+        <% if policy(booking).destroy? %>
+            <%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+    </div>
+    
+<% end %>
+

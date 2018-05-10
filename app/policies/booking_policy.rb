@@ -8,7 +8,7 @@ class BookingPolicy < ApplicationPolicy
     end
 
     def edit?
-        return true if user.present? && user == booking.user
+        return true if user.present? && user == booking.traveller
     end
    
     def update?
@@ -16,7 +16,7 @@ class BookingPolicy < ApplicationPolicy
     end
    
     def destroy?
-      return true if user.present? && user == booking.user
+      return true if user.present? && user == booking.tour_guide
     end
    
     private

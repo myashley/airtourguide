@@ -1,0 +1,19 @@
+<% my_paid_bookings.each do |paidbooking| %>
+    <div style="border: 1px solid grey; padding: 10px; margin: 10px;">
+        Tour Guide: <%= link_to "#{paidbooking.tour_guide.profile.fullname}", profile_path(paidbooking.tour_guide.profile) %>
+        <br>
+        <%= paidbooking.tour.location.name %>
+        <br>
+        <%= paidbooking.tour.start_date_time %>
+        <br>
+        <%= paidbooking.tour.end_date_time %>
+        <br>
+        <%= paidbooking.tour.description %>
+        <br>
+        <%= paidbooking.has_paid ? "Paid" : "Unpaid" %>
+        <br>
+       AUD <%= number_to_currency paidbooking.tour.price %>
+        <br>
+    </div>
+    
+<% end %>

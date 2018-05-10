@@ -13,6 +13,11 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def mybookings
+    @my_paid_bookings = current_user.bookings_as_traveller.all.where(has_paid: true).order(created_at: 'ASC')
+    @my_unpaid_bookings = current_user.bookings_as_traveller.all.where(has_paid: false).order(created_at: 'ASC')
+  end
+
   # GET /bookings/new
   def new
     @booking = Booking.new

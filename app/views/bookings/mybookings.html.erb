@@ -1,0 +1,23 @@
+<h1>My Tours</h1>
+
+<%= link_to "As Tour Guide", mytours_path %> | As Traveller
+
+<br><br>
+
+<h2>Unpaid Booked Tours</h2>
+<% if @my_unpaid_bookings.present? %>
+
+        <%= render 'my_unpaid_bookings', my_unpaid_bookings: @my_unpaid_bookings %>
+
+<% else %>
+    <p>You don't have any unpaid tours to travel yet.</p>
+<% end %>
+
+<h2>Paid Booked Tours</h2>
+<% if @my_paid_bookings.present? %>
+
+        <%= render 'my_paid_bookings', my_paid_bookings: @my_paid_bookings %>
+
+<% else %>
+    <p>You don't have any paid tours to travel yet.</p>
+<% end %>
