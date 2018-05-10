@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:charge, :show, :edit, :update, :destroy]
+  after_action :set_paid, only:[:charge]
 
   # GET /bookings
   # GET /bookings.json
@@ -27,22 +28,22 @@ class BookingsController < ApplicationController
 
   # POST / sneakers/1/charge
   def charge
-    amount = @booking.tour.price
 
     if current_user.stripe_id.blank?
         customer = Stripe::Customer.create(
           email: params[:stripeEmail],
           source: params[:stripeToken]
         )
-        current_user.stripe_id = customer.id #cus_123fdsfsg
-        current_user.save! # still haven't handled this error
+        current_user.stripe_id = customer.id 
+        current_user.save! 
     end
 
       charge = Stripe::Charge.create(
         customer: current_user.stripe_id,
-        amount: @booking.tour.price.to_i,
-        description: @booking.tour.location,
-        currency:'AUD'
+        amount: @booking.tour.price_in_cents.to_i,
+        description: "Tour: #{@booking.tour.location.name}",
+        currency:'AUD',
+        receipt_email: current_user.email, # Will not send with test API keys
       ) 
 
       flash[:notice] = 'Payment made!'
@@ -104,4 +105,8 @@ class BookingsController < ApplicationController
     def booking_params
       params.require(:booking).permit(:tour_guide_id, :traveller_id,:tour_id, :has_paid, :rating, :review)
     end  
+
+    def set_paid
+      Booking.where(traveller_id: current_user.id, id: @booking.id).update(has_paid: true)
+    end
 end

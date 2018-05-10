@@ -2,8 +2,8 @@ class Tour < ApplicationRecord
   belongs_to :user
   belongs_to :location
 
-  def to_cents
-    self.price * 100
+  def price_in_cents
+    price * 100.00
   end
 
 end

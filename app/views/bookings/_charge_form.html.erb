@@ -14,10 +14,11 @@
     
   </article>
 
+
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description=<%= booking.tour.location.name %>
-          data-amount=<%= booking.tour.price.to_cents %>
+          data-amount=<%= booking.tour.price_in_cents.to_i %>
           data-currency="AUD"
           data-email=<%= user.email %>
           data-locale="auto"></script>
