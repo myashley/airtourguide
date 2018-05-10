@@ -22,14 +22,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :profile_photo %>
+    <%= form.check_box :is_profile, id: :photo_is_profile %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_area :description, id: :photo_description %>
   </div>
   
-  <div class="field">
-    <%= form.label :profile_photo %>
-    <%= form.check_box :is_profile, id: :photo_is_profile %>
-  </div>
+  
 
   <div class="actions">
     <%= form.submit %>
