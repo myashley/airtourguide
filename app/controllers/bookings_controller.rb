@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:charge, :show, :edit, :update, :destroy]
 
   # GET /bookings
   # GET /bookings.json
@@ -24,6 +24,35 @@ class BookingsController < ApplicationController
   def edit
     
   end
+
+  # POST / sneakers/1/charge
+  def charge
+    amount = @booking.tour.price
+
+    if current_user.stripe_id.blank?
+        customer = Stripe::Customer.create(
+          email: params[:stripeEmail],
+          source: params[:stripeToken]
+        )
+        current_user.stripe_id = customer.id #cus_123fdsfsg
+        current_user.save! # still haven't handled this error
+    end
+
+      charge = Stripe::Charge.create(
+        customer: current_user.stripe_id,
+        amount: @booking.tour.price.to_i,
+        description: @booking.tour.location,
+        currency:'AUD'
+      ) 
+
+      flash[:notice] = 'Payment made!'
+      redirect_back fallback_location: mytours_path
+    
+      rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to charge_booking_path
+  end
+
 
   # POST /bookings
   # POST /bookings.json

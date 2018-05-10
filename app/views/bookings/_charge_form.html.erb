@@ -1,0 +1,24 @@
+<%= form_tag charge_booking_path(booking) do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+
+    <p>  
+        <label class="amount">
+          <span><strong>Price:</strong> <%= number_to_currency booking.tour.price %></span>
+        </label>
+    </p>
+    
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description=<%= booking.tour.location.name %>
+          data-amount=<%= booking.tour.price.to_cents %>
+          data-currency="AUD"
+          data-email=<%= user.email %>
+          data-locale="auto"></script>
+<% end %>

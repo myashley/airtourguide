@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
-  
-  resources :bookings
-  resources :photos
-  root 'pages#home'
 
+  root 'pages#home'
+  
+  resources :bookings do
+    member do
+      # /booking/1/charge
+      post 'charge' 
+    end
+  end
+
+  resources :photos
   resources :locations
-  resources :languages
   resources :profiles
   resources :tours
   devise_for :users, controllers: { registrations: 'users/registrations' }
