@@ -18,6 +18,8 @@ The app also provides opportunities for anyone who wishes to become a local tour
 
 ## Planning
 ### User Stories
+Trello: https://trello.com/b/IAJ4FD3i/air-tour-guide
+
 ![Trello](/app/assets/images/trello.png)
 
 ### Entity Relationship Diagram
@@ -43,6 +45,8 @@ Aim expression: Excited, easy to follow, stress free, clean and clear, curiousit
 ![Wireframes](/app/assets/images/raleway.png)
 
 ### Wireframes
+Figma: https://www.figma.com/file/0u8f4gJnNNOT7BZlnyak1YCg/Rails-Project
+
 ![Wireframes](/app/assets/images/figma.png)
 
 
