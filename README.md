@@ -3,6 +3,8 @@
 “Air Tour Guide” is a web platform for people who enjoy customised private tours, flexibilities, and explore interesting places wherever they go.
 
 URL: https://airtourguide.herokuapp.com/
+Username: test@test.com
+Password: test123
 
 ### Problem
 Many people would like to travel by themselves, with friends, with families, but complete strangers. Joining a group tour with tight schedules, wasting time going to unwanted places, bearing with a big group of random tour members during their precious holiday time might seem like a nightmare.
