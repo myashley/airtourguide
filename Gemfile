@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 # Imported gems
-gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'devise', '>= 4.6.0'
 gem 'pundit', '~> 1.1'
 gem 'country_select', '~> 3.1', '>= 3.1.1'
 gem 'shrine', '~> 2.11'
