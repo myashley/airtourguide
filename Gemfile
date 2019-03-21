@@ -7,14 +7,16 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
 # Imported gems
 gem 'devise', '~> 4.6', '>= 4.6.1'
-gem 'pundit', '~> 2.0', '>= 2.0.1'
+gem 'pundit', '~> 1.1'
 gem 'country_select', '~> 3.1', '>= 3.1.1'
-gem 'shrine', '~> 2.16'
+gem 'shrine', '~> 2.11'
 gem 'image_processing', '~> 1.2'
-gem 'stripe', '~> 4.10'
-gem 'mailgun-ruby', '~> 1.1', '>= 1.1.11'
+gem 'stripe', '~> 3.14'
+gem 'mailgun-ruby', '~> 1.1', '>= 1.1.9'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2', '>= 5.2.2.1'
@@ -44,8 +46,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
-  gem 'dotenv-rails', '~> 2.4'
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -64,3 +66,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
