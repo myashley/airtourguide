@@ -9,7 +9,7 @@ end
 
 
 # Imported gems
-gem 'devise', '~> 4.6', '>= 4.6.1'
+gem 'devise', '~> 4.7'
 gem 'pundit', '~> 1.1'
 gem 'country_select', '~> 3.1', '>= 3.1.1'
 gem 'shrine', '~> 2.11'
